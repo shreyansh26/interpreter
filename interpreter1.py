@@ -87,8 +87,10 @@ class Interpreter(object):
         """
         # set current token to the first token taken from the input
         self.current_token = self.get_next_token()
+
         left = []
         right = []
+        
         while(self.current_token.type == INTEGER):
             left.append(self.current_token)
             self.check(INTEGER)
