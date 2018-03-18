@@ -80,6 +80,7 @@ class Interpreter(object):
     def check(self, token_type):
         if self.current_token.type == token_type:
             self.current_token = self.get_next_token()
+        
 
     def expr(self):
         """
