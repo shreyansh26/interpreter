@@ -12,11 +12,8 @@ class Token(object):
     def __init__(self, type, value):
 
         # type: INTEGER, PLUS, or EOF
-
         self.type = type
-
         # value: 1...9
-
         self.value = value
 
     def __str__(self):
@@ -25,7 +22,6 @@ class Token(object):
             Token(INTEGER, 3)
             Token(PLUS '+')
         """
-
         return 'Token({type}: {value})'.format(type=self.type,
                 value=repr(self.value))
 
@@ -58,16 +54,14 @@ class Interpreter(object):
             self.current_char = self.text[self.pos]
 
     def skip_whitespace(self):
-        while self.current_char is not None \
-            and self.current_char.isspace():
+        while self.current_char is not None and self.current_char.isspace():
             self.go_ahead()
 
     def integer(self):
         """Return a (multidigit) integer consumed from the input."""
 
         result = ''
-        while self.current_char is not None \
-            and self.current_char.isdigit():
+        while self.current_char is not None and self.current_char.isdigit():
             result += self.current_char
             self.go_ahead()
 
@@ -109,7 +103,6 @@ class Interpreter(object):
         """
         expr -> INTEGER PLUS INTEGER
         """
-
         # set current token to the first token taken from the input
 
         self.current_token = self.get_next_token()
